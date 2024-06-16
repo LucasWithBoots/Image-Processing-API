@@ -9,14 +9,14 @@ const image = express.Router();
 //   next()
 // })
 
-// http://localhost:3000/api/image/?nomeImagem=palmtunnel.jpg&width=300&height=300
+// http://localhost:3000/api/image/?fileName=palmtunnel.jpg&width=300&height=300
 
 image.get("/", (req, res,next) => {
   const { fileName, width, height } = req.query
   console.log(`${fileName} ${width} ${height}`);
 
-  let inputBuffer = `./public/full/${fileName}`;
-  let outputBuffer = `./public/thumb/${fileName}`;
+  let inputBuffer = `./images/full/${fileName}`;
+  let outputBuffer = `./images/thumb/${fileName}`;
 
   sharp(inputBuffer)
     .resize(+width, +height)
