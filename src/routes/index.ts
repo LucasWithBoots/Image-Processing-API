@@ -1,10 +1,12 @@
 import express from "express";
 import image from "./api/image";
+import path from 'path'
 
 const routes = express.Router();
 
 routes.get("/", (req,res) =>{
-  res.send('main api route')
+  res.sendFile(path.join(__dirname, '../../public/index.html'));
+
 })
 
 routes.use("/image", image);

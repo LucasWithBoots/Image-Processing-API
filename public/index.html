@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container text-center" style="display: flex;align-items: center;flex-direction: column;padding: 20px">
+
+  <h1 class="text-center">Image Processing API</h1>
+  <div style="margin: 40px">
+    <label for="basic-url" class="form-label">URL para a imagem redimensionada</label>
+    <div class="input-group ">
+      <span class="input-group-text" id="basic-addon3">http://localhost:3000/api/image/?</span>
+      <input style="width: 600px" type="text" class="form-control" value="fileName=fjord.jpg&width=400&height=200" id="caminho_imagem" aria-describedby="basic-addon3 basic-addon4">
+      <button class="btn btn-outline-secondary" type="button" id="botao_acao_irLink">Acessar</button>
+    </div>
+    <div class="form-text" id="basic-addon4">Lembre-se de colocar a imagem em /images/full</div>
+  </div>
+
+  <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; justify-content: center;">
+    <img src="http://localhost:3000/api/image/?fileName=encenadaport.jpg&width=500&height=300" class="img-thumbnail" alt="...">
+    <img src="http://localhost:3000/api/image/?fileName=fjord.jpg&width=800&height=300" class="img-thumbnail" alt="...">
+    <img src="http://localhost:3000/api/image/?fileName=icelandwaterfall.jpg&width=200&height=120" class="img-thumbnail" alt="...">
+    <img src="http://localhost:3000/api/image/?fileName=santamonica.jpg&width=170&height=400" class="img-thumbnail" alt="...">
+  </div>
+
+</div>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+  document.getElementById('botao_acao_irLink').addEventListener('click', function() {
+    var caminho_imagem = document.getElementById('caminho_imagem').value;
+    var link = `http://localhost:3000/api/image/?${caminho_imagem}`;
+    window.location.href = link;
+  });
+</script>
