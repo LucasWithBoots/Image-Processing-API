@@ -1,5 +1,6 @@
 import sharp from "sharp";
 import fs from "node:fs";
+import express, { Request, Response } from "express";
 
 export interface sharpParametros {
   fileName: string;
@@ -9,16 +10,21 @@ export interface sharpParametros {
   outputBuffer: string;
 }
 
-export const processarImagem = async (params: sharpParametros, res) => {
+export const processarImagem = async (
+  params: sharpParametros,
+  res: Response,
+) => {
   try {
     try {
       if (!fs.existsSync("./images/thumb")) {
         fs.mkdirSync("./images/thumb");
       }
     } catch (err) {
-      res.send(
-        "Não foi possível criar a pasta ./images/thumb. Verifique se o programa possui permissão para essa ação.",
-      );
+      res
+        .status(500)
+        .send(
+          "Não foi possível criar a pasta ./images/thumb. Verifique se o programa possui permissão para essa ação.",
+        );
     }
 
     await sharp(params.inputBuffer)
@@ -35,10 +41,9 @@ export const processarImagem = async (params: sharpParametros, res) => {
   }
 };
 
-export const mostrarImagem = async (params: sharpParametros, res) => {
+export const mostrarImagem = async (params: sharpParametros, res: Response) => {
   fs.readFile(params.outputBuffer, (err, data) => {
     if (err) {
-      console.log(err);
       res
         .status(500)
         .send(
