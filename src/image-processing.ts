@@ -11,6 +11,16 @@ export interface sharpParametros {
 
 export const processarImagem = async (params: sharpParametros, res) => {
   try {
+    try {
+      if (!fs.existsSync("./images/thumb")) {
+        fs.mkdirSync("./images/thumb");
+      }
+    } catch (err) {
+      res.send(
+        "Não foi possível criar a pasta ./images/thumb. Verifique se o programa possui permissão para essa ação.",
+      );
+    }
+
     await sharp(params.inputBuffer)
       .resize(params.width, params.height)
       .toFile(params.outputBuffer);
