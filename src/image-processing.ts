@@ -1,6 +1,6 @@
 import sharp from "sharp";
 import fs from "node:fs";
-import express, { Request, Response } from "express";
+import { Response } from "express";
 
 export interface sharpParametros {
   fileName: string;
