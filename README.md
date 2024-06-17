@@ -9,7 +9,6 @@ Este projeto tem como objetivo fornecer uma API de processamento de imagens que 
 - Node.js
 - Express
 - TypeScript
-- Jasmine
 - Sharp
 - ESLint
 - Prettier
