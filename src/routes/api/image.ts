@@ -1,44 +1,23 @@
 import express from 'express';
-import sharp from 'sharp';
-import * as fs from "node:fs";
+import { processarImagem, mostrarImagem, sharpParametros } from '../../image-processing';
 
 const image = express.Router();
 
-// image.get("/", (req, res,next) => {
-//   res.send('Image route')
-//   next()
-// })
+image.get("/", async (req, res, next) => {
 
-// http://localhost:3000/api/image/?fileName=palmtunnel.jpg&width=300&height=300
-
-image.get("/", (req, res,next) => {
   const { fileName, width, height } = req.query
-  console.log(`${fileName} ${width} ${height}`);
 
-  let inputBuffer = `./images/full/${fileName}`;
-  let outputBuffer = `./images/thumb/${fileName}`;
+  const sharpParams: sharpParametros = {
+    fileName: fileName.toString(),
+    width: +width,
+    height: +height,
+    inputBuffer: `./images/full/${fileName}`,
+    outputBuffer: `./images/thumb/${fileName}`
+  };
 
-  sharp(inputBuffer)
-    .resize(+width, +height)
-    .toFile(outputBuffer, (err, info) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send('Erro ao processar a imagem.');
-        return;
-      }
+  await processarImagem(sharpParams, res);
 
-      fs.readFile(outputBuffer, (err, data) => {
-        if (err) {
-          console.log(err);
-          res.status(500).send('Erro ao ler a imagem processada.');
-          return;
-        }
-
-        res.setHeader('Content-Type', 'image/jpeg');
-        res.send(data);
-      });
-    });
+  await mostrarImagem(sharpParams, res);
 });
-
 
 export default image
