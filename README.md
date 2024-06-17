@@ -1,5 +1,7 @@
 # Image Processing API
 
+![home screen](./public/home.png)
+
 ## Descrição
 
 Este projeto tem como objetivo fornecer uma API de processamento de imagens que pode ser utilizada de duas formas distintas. Como uma API de placeholder simples, permite inserir imagens no frontend com o tamanho definido via parâmetros de URL, facilitando a prototipagem rápida. O segundo caso de uso é como uma biblioteca para servir versões redimensionadas corretamente das suas imagens para o frontend, reduzindo o tamanho do carregamento da página. A API trata do redimensionamento e da entrega das imagens armazenadas.
@@ -40,7 +42,7 @@ Para abrir a home do projeto acesse:
 
 http://localhost:3000/api
 
-![home screen](./public/home.png)
+![home screen](./public/caixa_input.png)
 
 Por padrão, o input já possui um valor válido mas é totalmente customizável.
 
