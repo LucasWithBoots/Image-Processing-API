@@ -35,6 +35,11 @@ cd image-processing-api
 ```
 npm install
 ```
+4. Execute com o node
+
+```
+node build/index
+```
 
 ## Uso
 
