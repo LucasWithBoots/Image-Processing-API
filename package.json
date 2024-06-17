@@ -1,7 +1,7 @@
 {
   "name": "image-processing-api",
   "version": "1.0.0",
-  "description": "Udacity project!",
+  "description": "API para redimensionamento e estilização de imagens para prototipagem rápida e carregamento eficiente 🚀",
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.ts",
@@ -11,7 +11,7 @@
     "test": "npm run build && npm run jasmine",
     "lint": "npx eslint ."
   },
-  "author": "",
+  "author": "Lucas Ferrari",
   "license": "MIT",
   "type": "module",
   "devDependencies": {
