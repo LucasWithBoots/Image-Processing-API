@@ -43,6 +43,9 @@ node build/index
 
 ## Uso
 
+> **Aviso:**
+> Este programa foi desenvolvido e testado especificamente para sistemas operacionais baseados em Linux. Não há garantina de funcionamento em outros sistemas operacionais.
+
 Para abrir a home do projeto acesse:
 
 http://localhost:3000/api
