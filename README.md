@@ -21,7 +21,7 @@ Este projeto tem como objetivo fornecer uma API de processamento de imagens que 
 1. Clone o repositório:
 
 ```
-git clone https://github.com/seu-usuario/image-processing-api.git
+git clone https://github.com/LucasWithBoots/image-processing-api.git
 ```
 
 2. Navegue até o diretório do projeto:
